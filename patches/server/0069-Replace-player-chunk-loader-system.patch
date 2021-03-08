@@ -1019,7 +1019,7 @@ index 0000000000000000000000000000000000000000..ff05688a729d8dd2ec7ea1e1a247c718
 +    }
 +}
 diff --git a/src/main/java/com/tuinity/tuinity/config/TuinityConfig.java b/src/main/java/com/tuinity/tuinity/config/TuinityConfig.java
-index 63dfad42c372a33b35c585aaa7ed24d8f16d44e0..14fa33e127e78104aaf64b126e6fdabd2eed2a43 100644
+index 63dfad42c372a33b35c585aaa7ed24d8f16d44e0..f252768b1024c816102205d7ed0ec30a02d5bdf4 100644
 --- a/src/main/java/com/tuinity/tuinity/config/TuinityConfig.java
 +++ b/src/main/java/com/tuinity/tuinity/config/TuinityConfig.java
 @@ -235,6 +235,25 @@ public final class TuinityConfig {
@@ -1036,8 +1036,8 @@ index 63dfad42c372a33b35c585aaa7ed24d8f16d44e0..14fa33e127e78104aaf64b126e6fdabd
 +
 +    private static void newPlayerChunkManagement() {
 +        playerMinChunkLoadRadius = TuinityConfig.getInt("player-chunks.min-load-radius", 2);
-+        playerMaxConcurrentChunkSends = TuinityConfig.getDouble("player-chunks.max-concurrent-sends", 1.0);
-+        playerMaxConcurrentChunkLoads = TuinityConfig.getDouble("player-chunks.max-concurrent-loads", 2.0);
++        playerMaxConcurrentChunkSends = TuinityConfig.getDouble("player-chunks.max-concurrent-sends", 3.0);
++        playerMaxConcurrentChunkLoads = TuinityConfig.getDouble("player-chunks.max-concurrent-loads", -9.0);
 +        playerAutoConfigureSendViewDistance = TuinityConfig.getBoolean("player-chunks.autoconfig-send-distance", true);
 +        // this costs server bandwidth. latest phosphor or starlight on the client fixes mc162253 anyways.
 +        enableMC162253Workaround = TuinityConfig.getBoolean("player-chunks.enable-mc162253-workaround", false);
