@@ -1204,7 +1204,7 @@ index e26389d8d9ee4fedb32767fce3aed071af412304..aa48f8b7cf03069e2d7d37c49b7c3855
          try {
              boolean execChunkTask = com.destroystokyo.paper.io.chunk.ChunkTaskManager.pollChunkWaitQueue() || ChunkProviderServer.this.world.asyncChunkTaskManager.pollNextChunkTask(); // Paper
 diff --git a/src/main/java/net/minecraft/server/EntityEnderDragon.java b/src/main/java/net/minecraft/server/EntityEnderDragon.java
-index de53af8c01f8fa9636386737b6bc071b32f87cd1..4585fecd27258345dbc34f0281b46886575907f8 100644
+index 7289d6c706b6c845584bac616c9babea80f8e885..50b93c93cfede2d64a996a22b811994b352149af 100644
 --- a/src/main/java/net/minecraft/server/EntityEnderDragon.java
 +++ b/src/main/java/net/minecraft/server/EntityEnderDragon.java
 @@ -576,9 +576,9 @@ public class EntityEnderDragon extends EntityInsentient implements IMonster {
@@ -1235,10 +1235,10 @@ index 5200b0396ee41edb42ff727c78cf3b5fce091d6b..239f504430b6c59923fd677d1be0121b
                  double deltaZ = this.locZ() - player.locZ();
                  double distanceSquared = deltaX * deltaX + deltaZ * deltaZ;
 diff --git a/src/main/java/net/minecraft/server/EntityPlayer.java b/src/main/java/net/minecraft/server/EntityPlayer.java
-index f958a4075721aea8805ddc5b49e0533d90d14d49..6ec849f643ffb0187da26ad9d4f98254f896a9ad 100644
+index f40c24b6e2f7bea21d1cb2b58ed3da45ffcfc866..c086579073c785b3b7cd556bbb629b91560bd449 100644
 --- a/src/main/java/net/minecraft/server/EntityPlayer.java
 +++ b/src/main/java/net/minecraft/server/EntityPlayer.java
-@@ -129,7 +129,7 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
+@@ -131,7 +131,7 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
  
      double lastEntitySpawnRadiusSquared; // Paper - optimise isOutsideRange, this field is in blocks
  
@@ -1248,10 +1248,10 @@ index f958a4075721aea8805ddc5b49e0533d90d14d49..6ec849f643ffb0187da26ad9d4f98254
  
      public EntityPlayer(MinecraftServer minecraftserver, WorldServer worldserver, GameProfile gameprofile, PlayerInteractManager playerinteractmanager) {
 diff --git a/src/main/java/net/minecraft/server/EntityWither.java b/src/main/java/net/minecraft/server/EntityWither.java
-index 2e623ef9be036ea467e9e41817c2eced018f8f93..51abf34d4b8e5e7832a55fb4bf4fdf8982c2de1c 100644
+index b1159f0258eca2bee52ec0939ba86792d24a1f99..3230c5454ccc39a2e3c89fdf8ca015cf7a15f380 100644
 --- a/src/main/java/net/minecraft/server/EntityWither.java
 +++ b/src/main/java/net/minecraft/server/EntityWither.java
-@@ -213,9 +213,9 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
+@@ -214,9 +214,9 @@ public class EntityWither extends EntityMonster implements IRangedEntity {
                  if (!this.isSilent()) {
                      // CraftBukkit start - Use relative location for far away sounds
                      // this.world.b(1023, new BlockPosition(this), 0);
@@ -1376,10 +1376,10 @@ index 3127fc9dd87e82243e167862cae83ac87b7f4fa0..13e8bfa62cd8dc1f65b07d7f617e02ae
              }
          }
 diff --git a/src/main/java/net/minecraft/server/PlayerChunkMap.java b/src/main/java/net/minecraft/server/PlayerChunkMap.java
-index 40d146a7c311f4d689dfd8814aad1f0122526755..569c9e101727f5bc79c808580aa1e9536f96c7cb 100644
+index 285e976d4a655fb61e70883ae89f974812be7152..2078235c669a20ef8b444d72b66535bc7033793b 100644
 --- a/src/main/java/net/minecraft/server/PlayerChunkMap.java
 +++ b/src/main/java/net/minecraft/server/PlayerChunkMap.java
-@@ -180,20 +180,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
+@@ -181,20 +181,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
      public final com.destroystokyo.paper.util.misc.PlayerAreaMap playerChunkTickRangeMap;
      // Paper end - optimise PlayerChunkMap#isOutsideRange
      // Paper start - no-tick view distance
@@ -1401,7 +1401,7 @@ index 40d146a7c311f4d689dfd8814aad1f0122526755..569c9e101727f5bc79c808580aa1e953
      // Paper end - no-tick view distance
      // Tuinity start - optimise checkDespawn
      public static final int GENERAL_AREA_MAP_SQUARE_RADIUS = 38;
-@@ -219,17 +206,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
+@@ -220,17 +207,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
          this.playerChunkTickRangeMap.add(player, chunkX, chunkZ, ChunkMapDistance.MOB_SPAWN_RANGE);
          // Paper end - optimise PlayerChunkMap#isOutsideRange
          // Paper start - no-tick view distance
@@ -1420,7 +1420,7 @@ index 40d146a7c311f4d689dfd8814aad1f0122526755..569c9e101727f5bc79c808580aa1e953
          // Paper end - no-tick view distance
          // Tuinity start - optimise checkDespawn
          this.playerGeneralAreaMap.add(player, chunkX, chunkZ, GENERAL_AREA_MAP_SQUARE_RADIUS);
-@@ -248,9 +225,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
+@@ -249,9 +226,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
          this.playerChunkTickRangeMap.remove(player);
          // Paper end - optimise PlayerChunkMap#isOutsideRange
          // Paper start - no-tick view distance
@@ -1431,7 +1431,7 @@ index 40d146a7c311f4d689dfd8814aad1f0122526755..569c9e101727f5bc79c808580aa1e953
          // Paper end - no-tick view distance
          // Tuinity start - optimise checkDespawn
          this.playerGeneralAreaMap.remove(player);
-@@ -274,17 +249,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
+@@ -275,17 +250,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
          this.playerChunkTickRangeMap.update(player, chunkX, chunkZ, ChunkMapDistance.MOB_SPAWN_RANGE);
          // Paper end - optimise PlayerChunkMap#isOutsideRange
          // Paper start - no-tick view distance
@@ -1450,7 +1450,7 @@ index 40d146a7c311f4d689dfd8814aad1f0122526755..569c9e101727f5bc79c808580aa1e953
          // Paper end - no-tick view distance
          // Tuinity start - optimise checkDespawn
          this.playerGeneralAreaMap.update(player, chunkX, chunkZ, GENERAL_AREA_MAP_SQUARE_RADIUS);
-@@ -441,47 +406,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
+@@ -442,47 +407,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
          // Paper end - optimise PlayerChunkMap#isOutsideRange
          // Paper start - no-tick view distance
          this.setNoTickViewDistance(this.world.paperConfig.noTickViewDistance);
@@ -1499,7 +1499,7 @@ index 40d146a7c311f4d689dfd8814aad1f0122526755..569c9e101727f5bc79c808580aa1e953
          // Paper end - no-tick view distance
          // Tuinity start
          this.dataRegionManager = new com.tuinity.tuinity.chunk.SingleThreadChunkRegionManager<>(this.world, RegionData.class, 2, (1.0 / 3.0), "Data");
-@@ -535,6 +460,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
+@@ -536,6 +461,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
      }
  
      public void checkHighPriorityChunks(EntityPlayer player) {
@@ -1507,7 +1507,7 @@ index 40d146a7c311f4d689dfd8814aad1f0122526755..569c9e101727f5bc79c808580aa1e953
          int currentTick = MinecraftServer.currentTick;
          if (currentTick - player.lastHighPriorityChecked < 20 || !player.isRealPlayer) { // weed out fake players
              return;
-@@ -542,7 +468,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
+@@ -543,7 +469,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
          player.lastHighPriorityChecked = currentTick;
          Long2IntOpenHashMap priorities = new Long2IntOpenHashMap();
  
@@ -1516,7 +1516,7 @@ index 40d146a7c311f4d689dfd8814aad1f0122526755..569c9e101727f5bc79c808580aa1e953
          BlockPosition.MutableBlockPosition pos = new BlockPosition.MutableBlockPosition();
  
          // Prioritize circular near
-@@ -608,7 +534,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
+@@ -609,7 +535,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
      }
  
      private boolean shouldSkipPrioritization(ChunkCoordIntPair coord) {
@@ -1525,7 +1525,7 @@ index 40d146a7c311f4d689dfd8814aad1f0122526755..569c9e101727f5bc79c808580aa1e953
          PlayerChunk chunk = getUpdatingChunk(coord.pair());
          return chunk != null && (chunk.isFullChunkReady());
      }
-@@ -1588,7 +1514,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
+@@ -1589,7 +1515,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
              int k = this.viewDistance;
  
              this.viewDistance = j;
@@ -1534,7 +1534,7 @@ index 40d146a7c311f4d689dfd8814aad1f0122526755..569c9e101727f5bc79c808580aa1e953
          }
  
      }
-@@ -1597,25 +1523,11 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
+@@ -1598,25 +1524,11 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
      public final void setNoTickViewDistance(int viewDistance) {
          com.tuinity.tuinity.util.TickThread.softEnsureTickThread("Cannot update view distance off of the main thread"); // Tuinity
          viewDistance = viewDistance == -1 ? -1 : MathHelper.clamp(viewDistance, 2, 32);
@@ -1562,7 +1562,7 @@ index 40d146a7c311f4d689dfd8814aad1f0122526755..569c9e101727f5bc79c808580aa1e953
          if (entityplayer.world == this.world) {
              if (flag1 && !flag) {
                  PlayerChunk playerchunk = this.getVisibleChunk(chunkcoordintpair.pair());
-@@ -2009,6 +1921,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
+@@ -2010,6 +1922,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
          }*/ // Paper end - replaced by distance map
  
          this.updateMaps(entityplayer); // Paper - distance maps
@@ -1570,7 +1570,7 @@ index 40d146a7c311f4d689dfd8814aad1f0122526755..569c9e101727f5bc79c808580aa1e953
  
      }
  
-@@ -2017,7 +1930,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
+@@ -2018,7 +1931,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
          // Paper start - per player view distance
          // there can be potential desync with player's last mapped section and the view distance map, so use the
          // view distance map here.
@@ -1579,7 +1579,7 @@ index 40d146a7c311f4d689dfd8814aad1f0122526755..569c9e101727f5bc79c808580aa1e953
  
          if (inRange == null) {
              return Stream.empty();
-@@ -2033,8 +1946,9 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
+@@ -2034,8 +1947,9 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
                      continue;
                  }
                  EntityPlayer player = (EntityPlayer)temp;
@@ -1591,7 +1591,7 @@ index 40d146a7c311f4d689dfd8814aad1f0122526755..569c9e101727f5bc79c808580aa1e953
  
                  int distX = Math.abs(MCUtil.getCoordinateX(lastPosition) - chunkcoordintpair.x);
                  int distZ = Math.abs(MCUtil.getCoordinateZ(lastPosition) - chunkcoordintpair.z);
-@@ -2049,6 +1963,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
+@@ -2050,6 +1964,7 @@ public class PlayerChunkMap extends IChunkLoader implements PlayerChunk.d {
                      continue;
                  }
                  EntityPlayer player = (EntityPlayer)temp;
@@ -1599,7 +1599,7 @@ index 40d146a7c311f4d689dfd8814aad1f0122526755..569c9e101727f5bc79c808580aa1e953
                  players.add(player);
              }
          }
-@@ -2267,6 +2182,7 @@ Sections go from 0..16. Now whenever a section is not empty, it can potentially
+@@ -2268,6 +2183,7 @@ Sections go from 0..16. Now whenever a section is not empty, it can potentially
              apacket[1] = new PacketPlayOutLightUpdate(chunk.getPos(), this.lightEngine, true);
  
              // Paper start - Fix MC-162253
@@ -1607,7 +1607,7 @@ index 40d146a7c311f4d689dfd8814aad1f0122526755..569c9e101727f5bc79c808580aa1e953
              final int lightMask = getLightMask(chunk);
              int i = 1;
              for (int x = -1; x <= 1; x++) {
-@@ -2291,10 +2207,12 @@ Sections go from 0..16. Now whenever a section is not empty, it can potentially
+@@ -2292,10 +2208,12 @@ Sections go from 0..16. Now whenever a section is not empty, it can potentially
                      apacket[i] = new PacketPlayOutLightUpdate(new ChunkCoordIntPair(chunk.getPos().x + x, chunk.getPos().z + z), lightEngine, updateLightMask, 0, true);
                  }
              }
@@ -1622,7 +1622,7 @@ index 40d146a7c311f4d689dfd8814aad1f0122526755..569c9e101727f5bc79c808580aa1e953
  
          int j = 1;
          for (int x = -1; x <= 1; x++) {
-@@ -2319,6 +2237,7 @@ Sections go from 0..16. Now whenever a section is not empty, it can potentially
+@@ -2320,6 +2238,7 @@ Sections go from 0..16. Now whenever a section is not empty, it can potentially
                  entityplayer.playerConnection.sendPacket(packet);
              }
          }
@@ -1630,7 +1630,7 @@ index 40d146a7c311f4d689dfd8814aad1f0122526755..569c9e101727f5bc79c808580aa1e953
          // Paper end - Fix MC-162253
  
          entityplayer.a(chunk.getPos(), apacket[0], apacket[1]);
-@@ -2505,7 +2424,7 @@ Sections go from 0..16. Now whenever a section is not empty, it can potentially
+@@ -2506,7 +2425,7 @@ Sections go from 0..16. Now whenever a section is not empty, it can potentially
                          ChunkCoordIntPair chunkcoordintpair = new ChunkCoordIntPair(this.tracker.chunkX, this.tracker.chunkZ);
                          PlayerChunk playerchunk = PlayerChunkMap.this.getVisibleChunk(chunkcoordintpair.pair());
  
@@ -1640,10 +1640,10 @@ index 40d146a7c311f4d689dfd8814aad1f0122526755..569c9e101727f5bc79c808580aa1e953
                          }
                      }
 diff --git a/src/main/java/net/minecraft/server/PlayerList.java b/src/main/java/net/minecraft/server/PlayerList.java
-index eabd1aa2b740bcb6db40be300cd6daf59674fa3f..a29545bbfe1251c0c6adbddcb541f54d80ba1ad2 100644
+index d03d0c13cca1762078617744253a9757b388958f..a12e58668e74f2287ddff5bedc00daf2b0a416c1 100644
 --- a/src/main/java/net/minecraft/server/PlayerList.java
 +++ b/src/main/java/net/minecraft/server/PlayerList.java
-@@ -187,7 +187,7 @@ public abstract class PlayerList {
+@@ -185,7 +185,7 @@ public abstract class PlayerList {
          boolean flag1 = gamerules.getBoolean(GameRules.REDUCED_DEBUG_INFO);
  
          // Spigot - view distance
@@ -1652,7 +1652,7 @@ index eabd1aa2b740bcb6db40be300cd6daf59674fa3f..a29545bbfe1251c0c6adbddcb541f54d
          entityplayer.getBukkitEntity().sendSupportedChannels(); // CraftBukkit
          playerconnection.sendPacket(new PacketPlayOutCustomPayload(PacketPlayOutCustomPayload.a, (new PacketDataSerializer(Unpooled.buffer())).a(this.getServer().getServerModName())));
          playerconnection.sendPacket(new PacketPlayOutServerDifficulty(worlddata.getDifficulty(), worlddata.isDifficultyLocked()));
-@@ -858,7 +858,7 @@ public abstract class PlayerList {
+@@ -857,7 +857,7 @@ public abstract class PlayerList {
          // CraftBukkit start
          WorldData worlddata = worldserver1.getWorldData();
          entityplayer1.playerConnection.sendPacket(new PacketPlayOutRespawn(worldserver1.getDimensionManager(), worldserver1.getDimensionKey(), BiomeManager.a(worldserver1.getSeed()), entityplayer1.playerInteractManager.getGameMode(), entityplayer1.playerInteractManager.c(), worldserver1.isDebugWorld(), worldserver1.isFlatWorld(), flag));
@@ -1661,7 +1661,7 @@ index eabd1aa2b740bcb6db40be300cd6daf59674fa3f..a29545bbfe1251c0c6adbddcb541f54d
          entityplayer1.spawnIn(worldserver1);
          entityplayer1.dead = false;
          entityplayer1.playerConnection.teleport(new Location(worldserver1.getWorld(), entityplayer1.locX(), entityplayer1.locY(), entityplayer1.locZ(), entityplayer1.yaw, entityplayer1.pitch));
-@@ -1127,7 +1127,7 @@ public abstract class PlayerList {
+@@ -1126,7 +1126,7 @@ public abstract class PlayerList {
              // Really shouldn't happen...
              backingSet = world != null ? world.players.toArray() : players.toArray();
          } else {
@@ -1701,10 +1701,10 @@ index 970c1be5477a01ab9c6d79e84c519e22775564ff..bf06ef09cfd4d7618365249d1332d264
                  // Paper end - per player view distance
              }
 diff --git a/src/main/java/org/bukkit/craftbukkit/CraftWorld.java b/src/main/java/org/bukkit/craftbukkit/CraftWorld.java
-index 15ce459aa15a8bb936740a8c055f4304e21312d2..4886621c3cba05c2d0184835a8ec9d5b0d7af980 100644
+index 3e54e643d28ced3074c4b044bc8a2238de05ccc2..902aaee6a53dbb4dccd7a34b3d6283769604d309 100644
 --- a/src/main/java/org/bukkit/craftbukkit/CraftWorld.java
 +++ b/src/main/java/org/bukkit/craftbukkit/CraftWorld.java
-@@ -2620,7 +2620,7 @@ public class CraftWorld implements World {
+@@ -2639,7 +2639,7 @@ public class CraftWorld implements World {
  
      @Override
      public int getNoTickViewDistance() {
@@ -1713,7 +1713,7 @@ index 15ce459aa15a8bb936740a8c055f4304e21312d2..4886621c3cba05c2d0184835a8ec9d5b
      }
  
      @Override
-@@ -2629,11 +2629,22 @@ public class CraftWorld implements World {
+@@ -2648,11 +2648,22 @@ public class CraftWorld implements World {
              throw new IllegalArgumentException("View distance " + viewDistance + " is out of range of [2, 32]");
          }
          net.minecraft.server.PlayerChunkMap chunkMap = getHandle().getChunkProvider().playerChunkMap;
@@ -1736,12 +1736,12 @@ index 15ce459aa15a8bb936740a8c055f4304e21312d2..4886621c3cba05c2d0184835a8ec9d5b
 +    // Tuinity end - add view distances
  
      // Spigot start
-     private final Spigot spigot = new Spigot()
+     private final org.bukkit.World.Spigot spigot = new org.bukkit.World.Spigot()
 diff --git a/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java b/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java
-index ed7b91bf703c7e7d5cbe323d9ab1c299c33ebad1..9541a2fdc8d8acc521d04216b9e9f5c628d09f48 100644
+index f965b071cd2f6a70a216679e4f19956115edee4f..b3636032fd36efe2e7e546dbebdfd5c1208f9951 100644
 --- a/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java
 +++ b/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java
-@@ -2058,15 +2058,70 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
+@@ -2248,15 +2248,70 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
          }
      }
  
